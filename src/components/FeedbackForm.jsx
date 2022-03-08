@@ -7,7 +7,7 @@ function FeedbackForm() {
   const [btnDisabled, setbtnDisabled] = useState(true);
   const [msg, setMsg] = useState('');
 
-  const handleTextChange = (e) => {
+  const handleTextChange = e => {
     if (text === '') {
       setbtnDisabled(true);
       setMsg(null);
@@ -25,18 +25,18 @@ function FeedbackForm() {
     <Card>
       <form>
         <h2>How would you rate your service?</h2>
-        <div className='input-group'>
+        <div className="input-group">
           <input
             onChange={handleTextChange}
-            type='text'
-            placeholder='Tell us about your experience'
+            type="text"
+            placeholder="Tell us about your experience"
             value={text}
           />
-          <Button type='submit' isDisabled={btnDisabled}>
+          <Button type="submit" isDisabled={btnDisabled}>
             Send
           </Button>
         </div>
-        {msg && <div className='message'>{msg}</div>}
+        {msg && <div className="message">{msg}</div>}
       </form>
     </Card>
   );
