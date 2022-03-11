@@ -1,17 +1,18 @@
 import FeedbackItem from './FeedbackItem';
 import PropTypes from 'prop-types';
+import { v4 } from 'uuid';
 
-function FeedbackList({ feedback, handleDelete }) {
+const FeedbackList = ({ feedback, handleDelete }) => {
   if (!feedback || feedback.length === 0) return <p>No feedback yet!</p>;
 
   return (
-    <div className='feedback-list'>
-      {feedback.map((e) => {
-        return <FeedbackItem key={e.id} item={e} handleDelete={handleDelete} />;
+    <div className="feedback-list">
+      {feedback.map(e => {
+        return <FeedbackItem key={v4()} item={e} handleDelete={handleDelete} />;
       })}
     </div>
   );
-}
+};
 
 FeedbackList.propTypes = {
   feedback: PropTypes.arrayOf(
@@ -19,7 +20,7 @@ FeedbackList.propTypes = {
       id: PropTypes.number.isRequired,
       text: PropTypes.string.isRequired,
       rating: PropTypes.number.isRequired,
-    })
+    }),
   ),
 };
 
